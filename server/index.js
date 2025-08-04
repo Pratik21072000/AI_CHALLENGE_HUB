@@ -73,3 +73,5 @@ if (require.main === module) {
 }
 
 module.exports = { createServer, startServer };
+
+export { createServer }
