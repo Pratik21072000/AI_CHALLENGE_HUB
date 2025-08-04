@@ -1,0 +1,33 @@
+# Fly.dev MySQL Database Configuration
+# This file configures a MySQL database for the Challenge Hub
+
+app = "challengehub-mysql"
+primary_region = "iad"
+
+[build]
+  image = "mysql:8.0"
+
+[env]
+  MYSQL_DATABASE = "challengehub"
+  MYSQL_USER = "challuser"
+  MYSQL_ROOT_PASSWORD = "root_secure_password_2024!"
+  MYSQL_PASSWORD = "user_secure_password_2024!"
+
+[mounts]
+  source = "mysql_data"
+  destination = "/var/lib/mysql"
+
+[[services]]
+  internal_port = 3306
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 3306
+    handlers = ["tcp"]
+
+[metrics]
+  port = 9104
+  path = "/metrics"
+
+[[restart]]
+  policy = "on-failure"

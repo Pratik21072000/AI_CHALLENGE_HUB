@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Base Theme Colors */
+    --background: 250 250% 100%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    /* Brand Colors - Enhanced Purple to Blue Gradient */
+    --primary: 242 84% 56%; /* Modern purple-blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+
+    --accent: 262 73% 60%; /* Complementary purple */
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors - Intuitive System */
+    --success: 142 76% 36%; /* Green for success/approved */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 32 95% 44%; /* Orange for warning/pending */
+    --warning-foreground: 0 0% 100%;
+
+    --error: 0 84% 60%; /* Red for error/rejected */
+    --error-foreground: 0 0% 100%;
+
+    --info: 212 92% 50%; /* Blue for info/submitted */
+    --info-foreground: 0 0% 100%;
+
+    /* Legacy destructive (maps to error) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI Colors */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 242 84% 56%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --radius: 0.75rem;
+
+    /* Typography System - Poppins Font Family */
+    --font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+    /* Font Sizes */
+    --font-size-heading: 24px;     /* Large headings (h1, page titles) */
+    --font-size-subheading: 18px;  /* Subheadings (h2, h3, section titles) */
+    --font-size-body: 16px;        /* Body text, paragraphs */
+    --font-size-label: 14px;       /* Form labels, navigation */
+    --font-size-small: 12px;       /* Helper text, captions */
+
+    /* Font Weights */
+    --font-weight-heading: 600;    /* Headings */
+    --font-weight-subheading: 600; /* Subheadings */
+    --font-weight-label: 500;      /* Labels, emphasis */
+    --font-weight-body: 400;       /* Body text */
+    --font-weight-light: 300;      /* Light text */
+
+    /* Line Heights */
+    --line-height-heading: 1.3;    /* Tight for headings */
+    --line-height-body: 1.5;       /* Standard for body text */
+    --line-height-small: 1.4;      /* Small text */
+
+    /* Letter Spacing */
+    --letter-spacing-heading: -0.01em; /* Slightly tighter for headings */
+    --letter-spacing-body: 0.01em;     /* Standard for body */
+    --letter-spacing-label: 0.02em;    /* Slightly wider for labels */
+
+    /* Sidebar Colors */
+    --sidebar-background: 250 50% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 242 84% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 242 20% 96%;
+    --sidebar-accent-foreground: 242 84% 56%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 242 84% 56%;
+  }
+
+  .dark {
+    /* Base Theme Colors - Dark */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand Colors - Enhanced for Dark Mode */
+    --primary: 242 84% 66%; /* Brighter in dark mode */
+    --primary-foreground: 224 71% 4%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 262 73% 70%; /* Brighter purple accent */
+    --accent-foreground: 224 71% 4%;
+
+    /* Status Colors - Dark Mode Optimized */
+    --success: 142 70% 45%; /* Slightly brighter green */
+    --success-foreground: 224 71% 4%;
+
+    --warning: 32 95% 54%; /* Brighter orange */
+    --warning-foreground: 224 71% 4%;
+
+    --error: 0 84% 70%; /* Brighter red for dark mode */
+    --error-foreground: 224 71% 4%;
+
+    --info: 212 92% 60%; /* Brighter blue */
+    --info-foreground: 224 71% 4%;
+
+    /* Legacy destructive */
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 224 71% 4%;
+
+    /* UI Colors - Dark */
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 242 84% 66%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Sidebar Colors - Dark */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 242 84% 66%;
+    --sidebar-primary-foreground: 224 71% 4%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 242 84% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-family);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  /* Global Typography Hierarchy */
+  h1, .text-heading-lg {
+    font-family: var(--font-family);
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+  }
+
+  h2, h3, .text-heading, .text-subheading {
+    font-family: var(--font-family);
+    font-size: var(--font-size-subheading);
+    font-weight: var(--font-weight-subheading);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+  }
+
+  h4, h5, h6, .text-label {
+    font-family: var(--font-family);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-label);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-label);
+  }
+
+  p, .text-body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  .text-small, small {
+    font-family: var(--font-family);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-small);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  /* Form Elements */
+  input, textarea, select, button {
+    font-family: var(--font-family);
+  }
+
+  input, textarea, select {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+  }
+
+  label {
+    font-family: var(--font-family);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-label);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-label);
+  }
+
+  button {
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-label);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-label);
+  }
+}
+
+@layer utilities {
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Updated Role Typography - Using Global System */
+  .role-header {
+    font-family: var(--font-family);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-label);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-label);
+  }
+
+  .role-description {
+    font-family: var(--font-family);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  .role-card-title {
+    font-family: var(--font-family);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-subheading);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-label);
+  }
+
+  .role-card-subtitle {
+    font-family: var(--font-family);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-small);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  /* Additional Typography Utilities */
+  .text-heading-primary {
+    font-family: var(--font-family);
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+  }
+
+  .text-subheading-primary {
+    font-family: var(--font-family);
+    font-size: var(--font-size-subheading);
+    font-weight: var(--font-weight-subheading);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--letter-spacing-heading);
+  }
+
+  .text-body-primary {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  .text-label-primary {
+    font-family: var(--font-family);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-label);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-label);
+  }
+
+  .text-small-primary {
+    font-family: var(--font-family);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-small);
+    letter-spacing: var(--letter-spacing-body);
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    :root {
+      --font-size-heading: 20px;    /* Smaller headings on mobile */
+      --font-size-subheading: 16px; /* Smaller subheadings on mobile */
+      --font-size-body: 14px;       /* Smaller body text on mobile */
+      --font-size-label: 13px;      /* Smaller labels on mobile */
+      --font-size-small: 11px;      /* Smaller small text on mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    :root {
+      --font-size-heading: 18px;    /* Even smaller headings on small mobile */
+      --font-size-subheading: 15px; /* Even smaller subheadings on small mobile */
+      --font-size-body: 13px;       /* Even smaller body text on small mobile */
+      --font-size-label: 12px;      /* Even smaller labels on small mobile */
+      --font-size-small: 10px;      /* Even smaller small text on small mobile */
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    * {
+      font-family: var(--font-family) !important;
+      color: black !important;
+    }
+
+    h1, .text-heading-primary {
+      font-size: 18pt !important;
+      font-weight: var(--font-weight-heading) !important;
+    }
+
+    h2, h3, .text-subheading-primary {
+      font-size: 14pt !important;
+      font-weight: var(--font-weight-subheading) !important;
+    }
+
+    p, .text-body-primary {
+      font-size: 12pt !important;
+      line-height: 1.4 !important;
+    }
+  }
+}
