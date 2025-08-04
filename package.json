@@ -5,14 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "setup-mysql": "bash scripts/deploy-mysql.sh",
-    "mysql-status": "flyctl status --app challengehub-mysql",
-    "mysql-logs": "flyctl logs --app challengehub-mysql",
-    "mysql-console": "flyctl ssh console --app challengehub-mysql"
+    "build:client": "vite build",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
